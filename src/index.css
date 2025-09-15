@@ -1,0 +1,29 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-slate-100 antialiased bg-black;
+  }
+
+  /* Custom scrollbar cho Chrome */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #06b6d4, #a855f7, #ec4899);
+    border-radius: 9999px;
+    border: 2px solid #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #22d3ee, #c084fc, #f472b6);
+  }
+}
