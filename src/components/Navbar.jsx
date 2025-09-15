@@ -36,7 +36,6 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Pick the entry with the highest intersection ratio that is intersecting
         let topEntry = null;
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
@@ -47,24 +46,18 @@ const Navbar = () => {
             topEntry = entry;
           }
         }
-        if (topEntry && topEntry.target && topEntry.target.id) {
+        if (topEntry?.target?.id) {
           setActive(`#${topEntry.target.id}`);
         }
       },
-      {
-        // Trigger a bit before the section is fully centered
-        root: null,
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: [0.2, 0.4, 0.6, 0.8, 1],
-      }
+      { rootMargin: "-20% 0px -60% 0px", threshold: [0.2, 0.4, 0.6, 0.8, 1] }
     );
 
     elements.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 
-  // Keep active state in sync if user navigates via back/forward or manual hash change
+  // Sync active khi đổi hash
   useEffect(() => {
     const onHashChange = () => {
       const hash = window.location.hash || "#intro";
@@ -74,7 +67,7 @@ const Navbar = () => {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  // Scroll to initial hash on load and set active accordingly
+  // Scroll tới section ban đầu
   useEffect(() => {
     const initialHash = window.location.hash || "#intro";
     const el = document.querySelector(initialHash);
@@ -84,19 +77,20 @@ const Navbar = () => {
     }
   }, []);
 
-  // Animate underline indicator to active link
+  // Animate indicator
   useEffect(() => {
     const el = linkRefs.current[active];
     const container = el?.offsetParent;
     if (!el || !container) return;
     const elRect = el.getBoundingClientRect();
     const parentRect = container.getBoundingClientRect();
-    const left = elRect.left - parentRect.left;
-    const width = elRect.width;
-    setIndicator({ left, width });
+    setIndicator({
+      left: elRect.left - parentRect.left,
+      width: elRect.width,
+    });
   }, [active]);
 
-  // Recalculate on resize
+  // Update indicator khi resize
   useEffect(() => {
     const onResize = () => {
       const el = linkRefs.current[active];
@@ -120,7 +114,7 @@ const Navbar = () => {
         <a
           href="#intro"
           onClick={(e) => handleNavClick(e, "#intro")}
-          className="font-bold text-lg bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent flex items-center gap-1"
+          className="font-extrabold text-lg bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent flex items-center gap-1 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]"
         >
           🚀 PORTFOLIO
         </a>
@@ -135,7 +129,7 @@ const Navbar = () => {
                 if (node) linkRefs.current[href] = node;
               }}
               onClick={(e) => handleNavClick(e, href)}
-              className={`font-bold relative px-4 py-2 rounded-full transition-all duration-300 ${
+              className={`font-bold relative px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
                 active === href
                   ? "bg-white/10 text-cyan-300 shadow-lg shadow-cyan-500/20"
                   : "text-gray-300 hover:text-cyan-300 hover:bg-white/5"
@@ -147,7 +141,7 @@ const Navbar = () => {
           {/* Gradient underline indicator */}
           <span
             ref={indicatorRef}
-            className="pointer-events-none absolute bottom-0 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-400 shadow-lg shadow-cyan-400/50 transition-all duration-500"
+            className="pointer-events-none absolute bottom-0 h-[3px] rounded-full bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-400 shadow-lg shadow-cyan-400/50 blur-sm transition-all duration-500"
             style={{ left: indicator.left, width: indicator.width }}
           />
         </nav>
@@ -155,10 +149,10 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           aria-label="Toggle menu"
-          className="rounded md:hidden border border-white/20 px-3 py-1 text-sm hover:bg-white/10"
+          className="rounded md:hidden border border-white/20 px-3 py-1 text-lg hover:bg-white/10"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? "Close" : "Menu"}
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
@@ -171,10 +165,10 @@ const Navbar = () => {
                 <a
                   href={href}
                   onClick={(e) => handleNavClick(e, href)}
-                  className={`block rounded px-3 py-2 ${
+                  className={`block rounded px-3 py-2 transition-all duration-300 hover:scale-105 ${
                     active === href
-                      ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
-                      : "hover:bg-white/10"
+                      ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md"
+                      : "text-gray-300 hover:text-cyan-300 hover:bg-white/10"
                   }`}
                 >
                   {label}

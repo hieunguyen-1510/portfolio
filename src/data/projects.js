@@ -1,30 +1,30 @@
 ﻿export const projects = [
   {
-    name: "SaaS Admin Dashboard",
+    name: "Fashion E-Commerce",
     description:
-      "Analytics dashboard with auth, RBAC, charts, and responsive layout.",
-    stack: ["React", "TypeScript", "Tailwind", "Node", "PostgreSQL"],
-    repo: "#",
-    demo: "#",
-    image: "/vite.svg",
+      "Modern online store for fashion products with catalog, cart, checkout, and secure payments.",
+    stack: ["React", "Tailwind", "Node.js", "MongoDB"],
+    repo: "https://github.com/hieunguyen-1510/DATN_Ecommecre",
+    demo: "https://datn-ecommecre.vercel.app/",
+    image: "/images/fashion-ecommerce.png",
   },
   {
-    name: "Realtime Chat App",
+    name: "Portfolio Website",
     description:
-      "WebSocket-based chat with rooms, typing indicators, and presence.",
-    stack: ["React", "Express", "Socket.IO", "Redis"],
-    repo: "#",
+      "Personal portfolio to showcase skills, education, and projects with responsive UI and animations.",
+    stack: ["React", "Tailwind", "Framer Motion"],
+    repo: "https://github.com/hieunguyen-1510/portfolio",
     demo: "#",
-    image: "/vite.svg",
+    image: "/images/portfolio.png",
   },
   {
-    name: "E-commerce Storefront",
+    name: "FruitApp",
     description:
-      "Product catalog, cart/checkout, payments, and order tracking.",
-    stack: ["React", "Next.js", "Tailwind", "Stripe"],
-    repo: "#",
+      "Mobile application built with Java for managing fruit store products, orders, and customer interactions.",
+    stack: ["Java", "Android Studio", "SQLite"],
+    repo: "https://github.com/hieunguyen-1510/FruitApp",
     demo: "#",
-    image: "/vite.svg",
+    image: "/images/fruitapp.png",
   },
 ];
 export default projects;
