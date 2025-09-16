@@ -16,6 +16,7 @@ import {
   SiPostman,
   SiSocketdotio,
   SiMariadbfoundation,
+  SiMysql
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -56,7 +57,7 @@ const skillCategories = [
   {
     title: "Database & Storage",
     skills: [
-      { name: "MySQL", icon: <SiPostgresql className="text-blue-400" /> },
+      { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-400" /> },
       { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
       {
