@@ -16,7 +16,12 @@ import {
   SiPostman,
   SiSocketdotio,
   SiMariadbfoundation,
-  SiMysql
+  SiMysql,
+  SiFigma,
+  SiFlask,
+  SiSpring,
+  SiSass,
+  SiBootstrap,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -38,9 +43,9 @@ const skillCategories = [
   {
     title: "Backend Frameworks",
     skills: [
-      { name: "Spring Boot", icon: <FaJava className="text-green-500" /> },
+      { name: "Spring Boot", icon: <SiSpring className="text-green-500" /> },
       { name: "Express.js", icon: <SiExpress className="text-gray-300" /> },
-      { name: "Flask", icon: <SiPython className="text-gray-400" /> },
+      { name: "Flask", icon: <SiFlask className="text-gray-400" /> },
     ],
   },
   {
@@ -49,9 +54,9 @@ const skillCategories = [
       { name: "Next.js", icon: <SiNextdotjs className="text-gray-300" /> },
       { name: "React.js", icon: <SiReact className="text-cyan-400" /> },
       { name: "TailwindCSS", icon: <SiTailwindcss className="text-sky-400" /> },
-      { name: "SASS", icon: <SiCss3 className="text-pink-400" /> },
-      { name: "Bootstrap", icon: <SiCss3 className="text-violet-400" /> },
-      { name: "Figma", icon: <SiCss3 className="text-pink-500" /> },
+      { name: "SASS", icon: <SiSass className="text-pink-400" /> },
+      { name: "Bootstrap", icon: <SiBootstrap className="text-violet-400" /> },
+      { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
     ],
   },
   {
